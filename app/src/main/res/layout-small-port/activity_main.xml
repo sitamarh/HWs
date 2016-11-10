@@ -5,21 +5,12 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.ex1.MainActivity">
-
     <TextView
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:text="@string/headline"
         android:id="@+id/textView2" />
@@ -35,16 +26,16 @@
         android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="70dp" />
+        android:layout_marginTop="20dp" />
 
     <EditText
         android:id="@+id/edit_message"
         android:layout_width="match_parent"
         android:layout_below="@id/textView"
-        android:layout_height="63dp"
+        android:layout_height="30dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textSize="15sp"
+        android:textSize="7sp"
         android:hint="0"
         android:inputType="numberDecimal"
         android:layout_alignParentLeft="true"

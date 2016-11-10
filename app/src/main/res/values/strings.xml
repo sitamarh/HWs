@@ -1,6 +1,10 @@
 <resources>
-<string name="app_name">Ex1</string>
-<string name="headline">Sheep order form</string>
-<string name="message">Please select num of sheeps</string>
-<string name="final_message">Order sent</string>
+    <string name="app_name">Ex2</string>
+    <string name="headline">Sheep order form</string>
+    <string name="message">Please select num of sheeps</string>
+    <string name="final_message">Order sent</string>
+
+    <string name="SecondScreen">OrderSent</string>
+    <string name="SendOrder">Your order has been sent!</string>
+
 </resources>

@@ -17,9 +17,9 @@ import static android.R.attr.button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Integer food_mark = 0;
+    private static Integer food_mark = 0;
 
-    private Integer number_of_sheep = 0;
+    private static Integer number_of_sheep = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,6 +161,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buttonClick(View view){
-        Toast.makeText(getApplicationContext(),R.string.final_message, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, Main2Activity.class);
+
+        startActivity(intent);
     }
 }
