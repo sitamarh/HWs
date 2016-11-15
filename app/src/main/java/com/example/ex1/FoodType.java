@@ -41,9 +41,8 @@ public class FoodType extends AppCompatActivity {
                                     int position, long id) {
                 MainActivity.foodSelected = foodList[+ position];
                 MainActivity.showFood = 1;
+
                 finish();
-                Intent intent = new Intent(FoodType.this, MainActivity.class);
-                startActivity(intent);
             }
         });
     }

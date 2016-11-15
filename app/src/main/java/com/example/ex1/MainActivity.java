@@ -37,15 +37,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
-
-        // Get a support ActionBar corresponding to this toolbar
-        ActionBar ab = getSupportActionBar();
-
-        // Enable the Up button
-        ab.setDisplayHomeAsUpEnabled(true);
-
         Button button = (Button) findViewById(R.id.button);
         button.setClickable(false);
 
@@ -167,7 +158,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
 
+        if (showFood.equals(1)) {
+            Toast.makeText(MainActivity.this, getString(R.string.youSelected) + " " + foodSelected.toString(), Toast.LENGTH_SHORT).show();
+
+            showFood = 0;
+        }
+    }
 
     public void boxClicked(View view) {
 
@@ -220,9 +220,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.action_settings) {
-            startActivity(new Intent(MainActivity.this, Main2Activity.class));
-            return true;
+        if(item.getItemId() == R.id.action_item) {
+            if (food_mark == 1 && number_of_sheep > 0) {
+                Intent intent = new Intent(this, Main2Activity.class);
+
+                startActivity(intent);
+
+                return true;
+            }
         }
         return super.onOptionsItemSelected(item);
     }
