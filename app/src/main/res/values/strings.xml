@@ -14,6 +14,7 @@
 
     <string name="youSelected">You selected</string>
 
+    <string name="ThirdScreen">Select Food</string>
 
 
     <string-array name="food_array">

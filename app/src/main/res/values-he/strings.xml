@@ -19,6 +19,8 @@
     <string name="Rogalach">רוגלך</string>
     <string name="Tshulent">טשולנש</string>
 
+    <string name="ThirdScreen">בחר מזון</string>
+
     <string-array name="food_array">
         <item>גפילטע פיש</item>
         <item>קניידלך</item>

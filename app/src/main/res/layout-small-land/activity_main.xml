@@ -46,24 +46,31 @@
                 android:id="@+id/edit_message"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:orientation="horizontal"
                 android:hint="@string/hintValue"
                 android:inputType="numberDecimal"
                 android:layout_toLeftOf="@id/checkBox"
-                android:layout_weight="4"
+                android:layout_weight="3"
                 android:textColorLink="@android:color/white" />
             <CheckBox
                 android:id="@+id/checkBox"
                 android:text="@string/food"
-                android:layout_width="wrap_content"
+                android:layout_width="59dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/textView"
                 android:onClick="boxClicked"
-                android:layout_weight="1"
                 android:textSize="10sp"
                 android:layout_gravity="right"
                 />
+            <Button
+                android:text="@string/selectBottun"
+                android:layout_width="60dp"
+                android:textSize="8sp"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:id="@+id/selectButton"
+                android:onClick="selectClicked"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -71,14 +78,6 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         >
-        <Button
-            android:text="@string/selectBottun"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:id="@+id/selectButton"
-            android:layout_weight="2.90"
-            android:onClick="selectClicked"/>
         <SeekBar
             android:id="@+id/seekBar3"
             android:layout_width="match_parent"
