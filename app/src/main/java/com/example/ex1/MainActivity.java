@@ -21,12 +21,15 @@ public class MainActivity extends AppCompatActivity {
 
     private static Integer number_of_sheep = 0;
 
+    public static String foodSelected = "";
+    public static Integer showFood = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = (Button)findViewById(R.id.button);
+        Button button = (Button) findViewById(R.id.button);
         button.setClickable(false);
 
         EditText editText = (EditText) findViewById(R.id.edit_message);
@@ -49,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                     intValue = Integer.parseInt(value);
                 }
 
-                SeekBar seekBar = (SeekBar)findViewById(R.id.seekBar3);
+                SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar3);
 
                 seekBar.setProgress(intValue);
 
@@ -77,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                     intValue = Integer.parseInt(value);
                 }
 
-                SeekBar seekBar = (SeekBar)findViewById(R.id.seekBar3);
+                SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar3);
 
                 seekBar.setProgress(intValue);
 
@@ -93,16 +96,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        SeekBar seekBar = (SeekBar)findViewById(R.id.seekBar3);
+        SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar3);
 
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
                 Integer seekBarValue = seekBar.getProgress();
 
-                TextView textView = (TextView)findViewById(R.id.edit_message);
+                TextView textView = (TextView) findViewById(R.id.edit_message);
                 textView.setText(seekBarValue.toString());
 
                 number_of_sheep = seekBarValue;
@@ -122,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 /*Integer seekBarValue = seekBar.getProgress();
 
                 TextView textView = (TextView)findViewById(R.id.edit_message);
@@ -139,6 +142,12 @@ public class MainActivity extends AppCompatActivity {
                 }*/
             }
         });
+
+        if (showFood.equals(1)) {
+            Toast.makeText(MainActivity.this, getString(R.string.youSelected) + " " + foodSelected.toString(), Toast.LENGTH_SHORT).show();
+
+            showFood = 0;
+        }
     }
 
     public void boxClicked(View view) {
@@ -158,6 +167,13 @@ public class MainActivity extends AppCompatActivity {
         } else {
             button.setClickable(false);
         }
+    }
+
+    public void selectClicked(View view) {
+        Intent intent = new Intent(this,FoodType.class);
+
+        startActivity(intent);
+
     }
 
     public void buttonClick(View view){

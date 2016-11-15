@@ -63,8 +63,16 @@
         android:onClick="boxClicked"
         android:id="@+id/checkBox" />
     <Button
+        android:text="@string/selectBottun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:id="@+id/selectButton"
+        android:layout_weight="2.90"
+        android:onClick="selectClicked"/>
+    <Button
         android:id="@+id/button"
-        android:text="Make order"
+        android:text="@string/makeOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/checkBox"

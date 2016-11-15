@@ -62,6 +62,15 @@
                 android:onClick="boxClicked"
                 android:layout_weight="1"
                 />
+
+            <Button
+                android:text="@string/selectBottun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:id="@+id/selectButton"
+                android:layout_weight="2.90"
+                android:onClick="selectClicked"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -89,11 +98,10 @@
         android:gravity="center_horizontal|center_vertical">>
         <Button
             android:id="@+id/button"
-            android:text="Make order"
+            android:text="@string/makeOrder"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@id/checkBox"
-
             android:onClick="buttonClick"
             android:clickable="true"
             android:layout_alignParentLeft="true"

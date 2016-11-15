@@ -1,12 +1,26 @@
 <resources>
-    <string name="app_name">Ex2</string>
+    <string name="app_name">Ex3</string>
     <string name="headline">Sheep order form</string>
     <string name="message">Please select num of sheeps</string>
     <string name="final_message">Order sent</string>
     <string name="food">With food</string>
+    <string name="selectBottun">Select</string>
+    <string name="makeOrder">Make order</string>
+
 
     <string name="hintValue">0</string>
     <string name="SecondScreen">OrderSent</string>
     <string name="SendOrder">Your order has been sent!</string>
 
+    <string name="youSelected">You selected</string>
+
+
+
+    <string-array name="food_array">
+        <item>Gefilte Fish</item>
+        <item>Kneidalach</item>
+        <item>Kogel</item>
+        <item>Rogalach</item>
+        <item>Tshulent</item>
+    </string-array>
 </resources>
