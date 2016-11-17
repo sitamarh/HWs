@@ -34,6 +34,14 @@ public class FoodListFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
 
+    Integer[] imageId = {
+            R.drawable.gefilte,
+            R.drawable.kneydalach,
+            R.drawable.kogel,
+            R.drawable.rogalach,
+            R.drawable.tshulent
+    };
+
     public FoodListFragment() {
         // Required empty public constructor
     }
@@ -68,9 +76,30 @@ public class FoodListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.fragment_food_list, container, false);
+
+        final String[] foodList = getResources().getStringArray(R.array.food_array);
+
+        ListView listView = (ListView)view.findViewById(R.id.listView);
+
+        MyArrayAdapter adapter = new MyArrayAdapter(getActivity(),
+                foodList,imageId);
+
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                MainFragment.foodSelected = foodList[+ position];
+                MainFragment.showFood = 1;
 
 
-        return inflater.inflate(R.layout.fragment_food_list, container, false);
+            }
+        });
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -111,4 +140,6 @@ public class FoodListFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
 }
