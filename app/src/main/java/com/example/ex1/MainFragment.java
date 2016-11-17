@@ -244,7 +244,7 @@ public class MainFragment extends Fragment {
         super.onResume();
 
         if (showFood.equals(1)) {
-            Toast.makeText(MainActivity.this, getString(R.string.youSelected) + " " + foodSelected.toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.getContext(), getString(R.string.youSelected) + " " + foodSelected.toString(), Toast.LENGTH_SHORT).show();
 
             showFood = 0;
         }
@@ -276,25 +276,25 @@ public class MainFragment extends Fragment {
     }
 
     public void buttonClick(View view){
-        Intent intent = new Intent(this, Main2Activity.class);
+        Intent intent = new Intent(getActivity(), Main2Activity.class);
 
         startActivity(intent);
     }
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        new MenuInflater(this).inflate(R.menu.action_item, menu);
+        new MenuInflater(this.getContext()).inflate(R.menu.action_item, menu);
 
         menuButtonSendOrder = menu.getItem(0);
 
         return super.onCreateOptionsMenu(menu);
     }
-
+*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.action_item) {
             if (food_mark == 1 && number_of_sheep > 0) {
-                Intent intent = new Intent(this, Main2Activity.class);
+                Intent intent = new Intent(getActivity(), Main2Activity.class);
 
                 startActivity(intent);
 
