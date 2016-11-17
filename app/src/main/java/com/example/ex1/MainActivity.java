@@ -9,12 +9,16 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import static com.example.ex1.R.id.parent;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,10 +31,49 @@ public class MainActivity extends AppCompatActivity {
 
     MenuItem menuButtonSendOrder;
 
+    Integer[] imageId = {
+            R.drawable.gefilte,
+            R.drawable.kneydalach,
+            R.drawable.kogel,
+            R.drawable.rogalach,
+            R.drawable.tshulent
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (findViewById(R.id.fragment_container) != null) {
+            if (savedInstanceState != null) {
+                return;
+            }
+
+            MainFragment mainFragment = new MainFragment();
+
+            mainFragment.setArguments(getIntent().getExtras());
+
+            getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,mainFragment).commit();
+        }
+
+        final String[] foodList = getResources().getStringArray(R.array.food_array);
+
+        ListView listView = (ListView)findViewById(R.id.listView);
+
+        MyArrayAdapter adapter = new MyArrayAdapter(this,foodList,imageId);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                MainActivity.foodSelected = foodList[+ position];
+                MainActivity.showFood = 1;
+
+                finish();
+            }
+        });
 
         Button button = (Button) findViewById(R.id.button);
         button.setClickable(false);
@@ -144,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
                     button.setClickable(false);
                 }*/
             }
+
         });
 
         if (showFood.equals(1)) {

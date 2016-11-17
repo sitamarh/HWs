@@ -1,98 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="121dp"
-        android:orientation="vertical" >
-        <TextView
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:text="@string/headline"
-            android:layout_marginTop="50dp"
-            android:id="@+id/textView2"
-            />
-    </LinearLayout>
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical" >
-        <TextView
-            android:id="@+id/textView"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/message"
-            android:layout_below="@+id/textView2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            />
-        <EditText
-            android:id="@+id/edit_message"
-            android:layout_width="match_parent"
-            android:layout_below="@id/textView"
-            android:layout_height="63dp"
-            android:textSize="15sp"
-            android:hint="0"
-            android:inputType="numberDecimal"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textColorLink="@android:color/white"
-            />
-        <SeekBar
-            android:id="@+id/seekBar3"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Widget.AppCompat.SeekBar"
-            android:clickable="true"
-            android:max="100"
-            android:layout_below="@+id/edit_message"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            />
-        <CheckBox
-            android:text="@string/food"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/seekBar3"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:onClick="boxClicked"
-            android:id="@+id/checkBox"
-            />
-        <Button
-            android:text="@string/selectBottun"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:id="@+id/selectButton"
-            android:layout_weight="2.90"
-            android:onClick="selectClicked"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:gravity="center_horizontal|center_vertical">
-        <Button
-            android:id="@+id/button"
-            android:text="@string/makeOrder"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_below="@id/checkBox"
-            android:onClick="buttonClick"
-            android:clickable="true"
-            android:textSize="20dp"
-            />
-    </LinearLayout>
-</LinearLayout>
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+    </FrameLayout>
+</RelativeLayout>
