@@ -34,8 +34,8 @@ public class FoodType extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                MainActivity.foodSelected = foodList[+ position];
-                MainActivity.showFood = 1;
+                //MainActivity.foodSelected = foodList[+ position];
+                //MainActivity.showFood = 1;
 
                 finish();
             }

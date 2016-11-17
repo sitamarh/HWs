@@ -9,8 +9,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +29,7 @@ import android.widget.Toast;
  * create an instance of this fragment.
  */
 public class MainFragment extends Fragment {
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -102,7 +101,7 @@ public class MainFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                EditText editText = (EditText) findViewById(R.id.edit_message);
+                EditText editText = (EditText) getView().findViewById(R.id.edit_message);
 
                 String value = editText.getText().toString();
 
@@ -113,13 +112,13 @@ public class MainFragment extends Fragment {
                     intValue = Integer.parseInt(value);
                 }
 
-                SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar3);
+                SeekBar seekBar = (SeekBar) getView().findViewById(R.id.seekBar3);
 
                 seekBar.setProgress(intValue);
 
                 number_of_sheep = intValue;
 
-                Button button = (Button) findViewById(R.id.button);
+                Button button = (Button) getView().findViewById(R.id.button);
 
                 if (food_mark == 1 && number_of_sheep > 0) {
                     button.setClickable(true);
@@ -130,7 +129,7 @@ public class MainFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                EditText editText = (EditText) findViewById(R.id.edit_message);
+                EditText editText = (EditText) getView().findViewById(R.id.edit_message);
 
                 String value = editText.getText().toString();
 
@@ -141,13 +140,13 @@ public class MainFragment extends Fragment {
                     intValue = Integer.parseInt(value);
                 }
 
-                SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar3);
+                SeekBar seekBar = (SeekBar) getView().findViewById(R.id.seekBar3);
 
                 seekBar.setProgress(intValue);
 
                 number_of_sheep = intValue;
 
-                Button button = (Button) findViewById(R.id.button);
+                Button button = (Button) getView().findViewById(R.id.button);
 
                 if (food_mark == 1 && number_of_sheep > 0) {
                     button.setClickable(true);
@@ -166,12 +165,12 @@ public class MainFragment extends Fragment {
 
                 Integer seekBarValue = seekBar.getProgress();
 
-                TextView textView = (TextView) view.findViewById(R.id.edit_message);
+                TextView textView = (TextView) getView().findViewById(R.id.edit_message);
                 textView.setText(seekBarValue.toString());
 
                 number_of_sheep = seekBarValue;
 
-                Button button = (Button) view.findViewById(R.id.button);
+                Button button = (Button) getView().findViewById(R.id.button);
 
                 if (food_mark == 1 && number_of_sheep > 0) {
                     button.setClickable(true);
@@ -196,6 +195,20 @@ public class MainFragment extends Fragment {
 
             showFood = 0;
         }
+
+        Button sButton = (Button) view.findViewById(R.id.selectButton);
+        sButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                transaction.replace(R.id.fragment_container, new FoodListFragment());
+                transaction.addToBackStack(null);
+
+                transaction.commit();
+            }
+        });
 
         return view;
     }
@@ -267,12 +280,6 @@ public class MainFragment extends Fragment {
         } else {
             button.setClickable(false);
         }
-    }
-
-    public void selectClicked(View view) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-        transaction.replace(R.id.fragment_container,new FoodListFragment()).commit();
     }
 
     public void buttonClick(View view){

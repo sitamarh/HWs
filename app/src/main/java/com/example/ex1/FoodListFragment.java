@@ -4,13 +4,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
-import static com.example.ex1.R.id.listView;
 
 
 /**
@@ -22,6 +22,7 @@ import static com.example.ex1.R.id.listView;
  * create an instance of this fragment.
  */
 public class FoodListFragment extends Fragment {
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -95,7 +96,16 @@ public class FoodListFragment extends Fragment {
                 MainFragment.foodSelected = foodList[+ position];
                 MainFragment.showFood = 1;
 
+                FragmentManager fm = getActivity()
+                        .getSupportFragmentManager();
 
+                fm.popBackStack();
+
+                /*FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                transaction.replace(R.id.fragment_container,fragmentBackStack.pop())
+
+                transaction.replace(R.id.fragment_container,new FoodListFragment()).commit();*/
             }
         });
 
