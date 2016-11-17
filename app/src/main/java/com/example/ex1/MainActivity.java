@@ -207,14 +207,6 @@ public class MainActivity extends AppCompatActivity {
 
         menuButtonSendOrder = menu.getItem(0);
 
-        if (food_mark == 1 && number_of_sheep > 0) {
-            Intent intent = new Intent(this, Main2Activity.class);
-
-            startActivity(intent);
-
-            return true;
-        }
-
             return super.onCreateOptionsMenu(menu);
     }
 
