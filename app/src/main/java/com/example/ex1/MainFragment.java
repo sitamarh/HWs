@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -189,6 +190,30 @@ public class MainFragment extends Fragment {
             }
 
         });
+
+        final CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkBox);
+
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+                if (isChecked) {
+                    food_mark = 1;
+                } else {
+                    food_mark = 0;
+                }
+
+                Button button = (Button) getActivity().findViewById(R.id.button);
+
+                if (food_mark == 1 && number_of_sheep > 0) {
+                    button.setClickable(true);
+                } else {
+                    button.setClickable(false);
+                }
+
+            }
+        });
+
 
         if (showFood.equals(1)) {
             Toast.makeText(getActivity(), getString(R.string.youSelected) + " " + foodSelected.toString(), Toast.LENGTH_SHORT).show();

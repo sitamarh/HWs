@@ -55,7 +55,7 @@
             style="@style/Widget.AppCompat.SeekBar"
             android:clickable="true"
             android:max="100"
-            android:layout_below="@+id/edit_message"
+            android:layout_below="@id/edit_message"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             />
