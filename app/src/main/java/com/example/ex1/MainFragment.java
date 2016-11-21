@@ -230,26 +230,27 @@ public class MainFragment extends Fragment {
             showFood = 0;
         }*/
 
-        Button sButton = (Button) view.findViewById(R.id.selectButton);
+        if (MainActivity.BigScreen == false) {
+            Button sButton = (Button) view.findViewById(R.id.selectButton);
 
-        sButton.setText(R.string.selectBottun);
+            sButton.setText(R.string.selectBottun);
 
-        if (showFood.equals(1)){
-            sButton.setText(foodSelected);
-        }
-
-        sButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-                transaction.replace(R.id.fragment_container, new FoodListFragment());
-                transaction.addToBackStack(null);
-
-                transaction.commit();
+            if (showFood.equals(1)) {
+                sButton.setText(foodSelected);
             }
-        });
+
+            sButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                    transaction.replace(R.id.fragment_container, new FoodListFragment());
+                    transaction.addToBackStack(null);
+
+                    transaction.commit();
+                }
+            });
+        }
 
         return view;
     }
@@ -302,6 +303,16 @@ public class MainFragment extends Fragment {
             sButton.setText(foodSelected);
 
             showFood = 0;
+        }
+    }
+
+    public void SetButtonText() {
+        Button sButton = (Button) getActivity().findViewById(R.id.selectButton);
+
+        sButton.setText(R.string.selectBottun);
+
+        if (showFood.equals(1)) {
+            sButton.setText(foodSelected);
         }
     }
 

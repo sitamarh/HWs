@@ -93,14 +93,21 @@ public class FoodListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                MainFragment.foodSelected = foodList[+ position];
+                MainFragment.foodSelected = foodList[+position];
                 MainFragment.showFood = 1;
 
-                FragmentManager fm = getActivity()
-                        .getSupportFragmentManager();
+                if (MainActivity.BigScreen == true) {
+                    MainFragment mainFragment = (MainFragment)
+                            getActivity()
+                                    .getSupportFragmentManager().findFragmentById(R.id.fragment_container);
 
-                fm.popBackStack();
+                    mainFragment.SetButtonText();
+                }else {
+                    FragmentManager fm = getActivity()
+                            .getSupportFragmentManager();
 
+                    fm.popBackStack();
+                }
                 /*FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 transaction.replace(R.id.fragment_container,fragmentBackStack.pop())

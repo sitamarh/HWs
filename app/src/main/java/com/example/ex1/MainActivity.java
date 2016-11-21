@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity
 
     MenuItem menuButtonSendOrder;
 
-    public boolean BigScreen;
+    public static boolean BigScreen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
