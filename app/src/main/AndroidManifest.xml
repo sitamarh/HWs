@@ -20,11 +20,6 @@
         <activity
             android:name=".Main2Activity"
             android:label="@string/SecondScreen" />
-        <activity
-            android:name=".FoodType"
-            android:label="@string/ThirdScreen"
-            ></activity>
-
     </application>
 
 </manifest>

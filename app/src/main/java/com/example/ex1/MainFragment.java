@@ -44,9 +44,9 @@ public class MainFragment extends Fragment {
 
     MenuItem menuButtonSendOrder;
 
-    private static Integer food_mark = 0;
+    public static Integer food_mark = 0;
 
-    private static Integer number_of_sheep = 0;
+    public static Integer number_of_sheep = 0;
 
     public static String foodSelected = "";
     public static Integer showFood = 0;
@@ -339,17 +339,5 @@ public class MainFragment extends Fragment {
         return super.onCreateOptionsMenu(menu);
     }
 */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.action_item) {
-            if (food_mark == 1 && number_of_sheep > 0) {
-                Intent intent = new Intent(getActivity(), Main2Activity.class);
 
-                startActivity(intent);
-
-                return true;
-            }
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

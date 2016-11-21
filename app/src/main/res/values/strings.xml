@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ex3</string>
+    <string name="app_name">Ex4</string>
     <string name="headline">Sheep order form</string>
     <string name="message">Please select num of sheeps</string>
     <string name="final_message">Order sent</string>
