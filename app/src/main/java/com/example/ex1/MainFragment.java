@@ -93,6 +93,15 @@ public class MainFragment extends Fragment {
         Button button = (Button) view.findViewById(R.id.button);
         button.setClickable(false);
 
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Main2Activity.class);
+
+                startActivity(intent);
+            }
+        });
+
         EditText editText = (EditText) view.findViewById(R.id.edit_message);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -215,13 +224,20 @@ public class MainFragment extends Fragment {
         });
 
 
-        if (showFood.equals(1)) {
+      /*  if (showFood.equals(1)) {
             Toast.makeText(getActivity(), getString(R.string.youSelected) + " " + foodSelected.toString(), Toast.LENGTH_SHORT).show();
 
             showFood = 0;
-        }
+        }*/
 
         Button sButton = (Button) view.findViewById(R.id.selectButton);
+
+        sButton.setText(R.string.selectBottun);
+
+        if (showFood.equals(1)){
+            sButton.setText(foodSelected);
+        }
+
         sButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -282,13 +298,14 @@ public class MainFragment extends Fragment {
         super.onResume();
 
         if (showFood.equals(1)) {
-            Toast.makeText(this.getContext(), getString(R.string.youSelected) + " " + foodSelected.toString(), Toast.LENGTH_SHORT).show();
+            Button sButton = (Button) getActivity().findViewById(R.id.selectButton);
+            sButton.setText(foodSelected);
 
             showFood = 0;
         }
     }
 
-    public void boxClicked(View view) {
+/*    public void boxClicked(View view) {
 
         CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkBox);
 
@@ -305,13 +322,13 @@ public class MainFragment extends Fragment {
         } else {
             button.setClickable(false);
         }
-    }
+    }*/
 
-    public void buttonClick(View view){
+   /* public void buttonClick(View view){
         Intent intent = new Intent(getActivity(), Main2Activity.class);
 
         startActivity(intent);
-    }
+    }*/
 /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
