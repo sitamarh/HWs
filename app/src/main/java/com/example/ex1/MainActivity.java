@@ -19,28 +19,18 @@ public class MainActivity extends AppCompatActivity
 
     MenuItem menuButtonSendOrder;
 
+    public boolean BigScreen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        int screenSize = getResources().getConfiguration().screenLayout &
-                Configuration.SCREENLAYOUT_SIZE_MASK;
-
-        String toastMsg;
-        switch(screenSize) {
-            case Configuration.SCREENLAYOUT_SIZE_LARGE:
-                toastMsg = "Large screen";
-                break;
-            case Configuration.SCREENLAYOUT_SIZE_NORMAL:
-                toastMsg = "Normal screen";
-                break;
-            case Configuration.SCREENLAYOUT_SIZE_SMALL:
-                toastMsg = "Small screen";
-                break;
-            default:
-                toastMsg = "Screen size is neither large, normal or small";
+        if (getResources().getConfiguration().smallestScreenWidthDp >= 600){
+            BigScreen = true;
+        } else {
+            BigScreen = false;
         }
+
 
         if (findViewById(R.id.fragment_container) != null) {
             if (savedInstanceState != null) {
@@ -52,6 +42,15 @@ public class MainActivity extends AppCompatActivity
             mainFragment.setArguments(getIntent().getExtras());
 
             getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,mainFragment).commit();
+
+
+            if (BigScreen) {
+                FoodListFragment foodListFragment = new FoodListFragment();
+
+                foodListFragment.setArguments((getIntent().getExtras()));
+
+                getSupportFragmentManager().beginTransaction().add(R.id.second_fragment_container, foodListFragment).commit();
+            }
         }
     }
     @Override
